@@ -1,0 +1,830 @@
+from PyQt5.QtWidgets import *
+from PyQt5.QtCore import *
+from PyQt5.QtGui import *
+from PyQt5 import *
+
+import sys
+
+class Window_3(QWidget):
+    def __init__(self):
+        super().__init__()
+        self.title = "Information"
+        self.setWindowTitle(self.title)
+        self.setGeometry(328, 127, 160, 170)
+        Window_3.setFixedSize(self,160,170)
+
+        label_2 = QLabel("First, the first two color",self)
+        label_2.setFont(QFont("Times",12))
+        label_2.setGeometry(5,2,150,12)
+
+        label_3 = QLabel("value are written",self)
+        label_3.setFont(QFont("Times",12))
+        label_3.setGeometry(5,25,150,12)
+
+        button_14 = QLabel("in order. Then zero is ",self)
+        button_14.setFont(QFont("Times",12))
+        button_14.setGeometry(5,42,150,12)
+
+        label_5 = QLabel("added to the right side of",self)
+        label_5.setFont(QFont("Times",12))
+        label_5.setGeometry(5,59,150,18)
+
+        label_6 = QLabel("the number by the third",self)
+        label_6.setFont(QFont("Times",12))
+        label_6.setGeometry(5,82,150,18)
+
+        label_7 = QLabel("color value. Forth color",self)
+        label_7.setFont(QFont("Times",12))
+        label_7.setGeometry(5,105,150,12)
+
+        label_8 = QLabel("determines tolerance of",self)
+        label_8.setFont(QFont("Times",12))
+        label_8.setGeometry(5,128,150,12)
+
+        label_9 = QLabel("general resistor value.",self)
+        label_9.setFont(QFont("Times",12))
+        label_9.setGeometry(5,146,150,18)
+
+class Window_2(QWidget):
+    def __init__(self):
+        super().__init__()
+        self.title = "Resistor Value Colors Table"
+        self.setWindowTitle(self.title)
+        self.setGeometry(300, 50, 300, 300)
+        Window_2.setFixedSize(self,300,300)
+
+        button_11 = QPushButton("",self)
+        pixmap_11 = QPixmap("resistor_value_colors.png")
+        button_11.setIconSize(QSize(300,300))
+        button_11.setIcon(QIcon(pixmap_11))
+        button_11.setGeometry(0,0,300,300)
+        button_11.setStyleSheet("border: none;")
+
+        self.thirdWindow = Window_3()
+
+        def info_1():
+            self.thirdWindow.show()
+
+        button_12 = QPushButton("",self)
+        pixmap_12 = QPixmap("info.png")
+        button_12.setIconSize(QSize(16,16))
+        button_12.setIcon(QIcon(pixmap_12))
+        button_12.setGeometry(10,50,16,16)
+        button_12.setStyleSheet("border: none;")
+        button_12.clicked.connect(info_1)
+
+class Window(QWidget):
+    def __init__(self):
+        super().__init__()
+
+        #About window settings and related to opening other windows
+        def part_1():
+            self.title = "Resistor Value Calculator"
+            self.setWindowTitle(self.title)
+            self.formIcon = "220_ohm_resistor.png"
+            self.setWindowIcon(QtGui.QIcon(self.formIcon))
+            self.setGeometry(0, 0, 300, 500)
+            Window.setFixedSize(self,300,575)
+
+
+            def constant():
+                button_1 = QPushButton("",self)
+                button_1.setGeometry(30,31,75,47)
+                pixmap_1 = QPixmap("resistor_left.png")
+                button_1.setIcon(QIcon(pixmap_1))
+                button_1.setIconSize(QSize(75,47))
+                button_1.setStyleSheet("border: none;")
+
+                button_3 = QPushButton("",self)
+                button_3.setGeometry(94,31,50,47)
+                pixmap_3 = QPixmap("resistor_2.color.png")
+                button_3.setIcon(QIcon(pixmap_3))
+                button_3.setIconSize(QSize(50,37))
+                button_3.setStyleSheet("border: none;")
+
+                button_5 = QPushButton("",self)
+                button_5.setGeometry(123,31,50,47)
+                pixmap_5 = QPixmap("resistor_4.color.png")
+                button_5.setIcon(QIcon(pixmap_5))
+                button_5.setIconSize(QSize(50,37))
+                button_5.setStyleSheet("border: none;")
+
+                button_7 = QPushButton("",self)
+                button_7.setGeometry(151,31,50,47)
+                pixmap_7 = QPixmap("resistor_6.color.png")
+                button_7.setIcon(QIcon(pixmap_7))
+                button_7.setIconSize(QSize(50,37))
+                button_7.setStyleSheet("border: none;")
+
+                button_9 = QPushButton("",self)
+                button_9.setGeometry(191,31,75,47)
+                pixmap_9 = QPixmap("resistor_8.color.png")
+                button_9.setIcon(QIcon(pixmap_9))
+                button_9.setIconSize(QSize(75,47))
+                button_9.setStyleSheet("border: none;")
+
+            constant()
+
+            self.button_2 = QPushButton("",self)
+            self.button_2.setGeometry(102,31,10,47)
+            self.button_2.setStyleSheet("border-style: outset;"
+                                        "border-width: 1px;"
+                                        "background-color: black;"
+                                        "border-color: black;");
+
+            self.button_4 = QPushButton("",self)
+            self.button_4.setGeometry(124,36,14,37)
+            self.button_4.setStyleSheet("border-style: outset;"
+                                        "border-width: 1px;"
+                                        "background-color: black;"
+                                        "border-color: black;");
+
+            self.button_6 = QPushButton("",self)
+            self.button_6.setGeometry(157,36,13,37)
+            self.button_6.setStyleSheet("border-style: outset;"
+                                        "border-width: 1px;"
+                                        "background-color: black;"
+                                        "border-color: black;");
+
+            self.button_8 = QPushButton("",self)
+            self.button_8.setGeometry(181,31,12,47)
+            self.button_8.setStyleSheet("border-style: outset;"
+                                        "border-width: 1px;"
+                                        "background-color: #CFB53B;"
+                                        "border-color: black;");
+
+            self.label_1 = QLabel("0",self)
+            self.label_1.setAlignment(Qt.AlignRight)
+            self.label_1.setGeometry(92,85,108,27)
+            self.label_1.setStyleSheet("background-color: #EFE4B0;"
+                                  "border:none;"
+                                  "background-color: #EFE4B0;"
+                                  "border-style: outset;"
+                                  "border-width: 2px;"
+                                  "border-radius: 10px;"
+                                  "border-color: black;");
+
+            self.label_1.setFont(QFont("Times",15))
+
+            button_9 = QPushButton("",self)
+            pixmap_9 = QPixmap("Omega.png")
+            button_9.setIcon(QIcon(pixmap_9))
+            button_9.setIconSize(QSize(20,20))
+            button_9.setGeometry(200,90,20,20)
+            button_9.setStyleSheet("border: none;")
+
+            self.secondWindow = Window_2()
+
+            def table():
+                self.secondWindow.show()
+
+            button_10 = QPushButton("",self)
+            pixmap_10 = QPixmap("table_icon.png")
+            button_10.setIcon(QIcon(pixmap_10))
+            button_10.setIconSize(QSize(26,26))
+            button_10.setGeometry(243,105,26,26)
+            button_10.setStyleSheet("border: none;")
+            button_10.clicked.connect(table)
+
+        part_1()
+        #About first big button
+        def part_2_1():
+            button_13 = QPushButton(#"            Enter Resistor Value            ",
+            self)
+            button_13.setFont(QFont("Times",12))
+            button_13.setStyleSheet("color: black ;"
+                                     "border:none;"
+                                     "background-color: #EFE4B0;"
+                                     "border-style: outset;"
+                                     "border-width: 2px;"
+                                     "border-radius: 30px;"
+                                     "border-color: black;"
+                                     "min-width: 10em;"
+                                     "padding: 6px;");
+            button_13.setGeometry(30,150,240,196)
+
+            button_14 = QPushButton("Enter Resistor Value",button_13)
+            button_14.setFont(QFont("Times",12))
+            button_14.setStyleSheet("color: black ;"
+                                     "background-color: #CD853F;"
+                                     "border-style: outset;"
+                                     "border-width: 2px;"
+                                     "border-radius: 10px;"
+                                     "border-color: black;"
+                                     "min-width: 10em;"
+                                     "padding: 6px;");
+            button_14.setGeometry(45,0,50,28)
+
+            button_39 = QPushButton("",button_13)
+            button_39.setFont(QFont("Times",12))
+            button_39.setStyleSheet("color: black ;"
+                                     "background-color: #CD853F;"
+                                     "border-style: outset;"
+                                     "border-width: 2px;"
+                                     "border-radius: 10px;"
+                                     "border-color: black;"
+                                     "min-width: 10em;"
+                                     "padding: 6px;");
+            button_39.setGeometry(15,30,210,136)
+
+            button_40 = QPushButton("",self)
+            button_40.setFont(QFont("Times",12))
+            button_40.setStyleSheet("color: black ;"
+                                    "background-color: #EFE4B0;"
+                                     "border-style: outset;"
+                                     "border-width: 2px;"
+                                     "border-radius: 10px;"
+                                     "border-color: black;");
+            button_40.setGeometry(52,186,96,105)
+
+            button_41= QPushButton("",self)
+            button_41.setFont(QFont("Times",12))
+            button_41.setStyleSheet("color: black ;"
+                                    "background-color: #EFE4B0;"
+                                     "border-style: outset;"
+                                     "border-width: 2px;"
+                                     "border-radius: 10px;"
+                                     "border-color: black;");
+            button_41.setGeometry(152,186,96,105)
+
+            label_4 = QLabel("Please do not",button_40)
+            label_4.setFont(QFont("Times",12))
+            label_4.setStyleSheet("color: black ;"
+                                  "border: none;"
+                                  "background-color: none;");
+            label_4.setGeometry(6,0,100,26)
+
+            label_5 = QLabel("enter any",button_40)
+            label_5.setFont(QFont("Times",12))
+            label_5.setStyleSheet("color: black ;"
+                                  "border: none;"
+                                  "background-color: none;");
+            label_5.setGeometry(18,14,100,26)
+
+            label_6 = QLabel("number other",button_40)
+            label_6.setFont(QFont("Times",12))
+            label_6.setStyleSheet("color: black ;"
+                                  "border: none;"
+                                  "background-color: none;");
+            label_6.setGeometry(8,28,100,26)
+
+            label_7 = QLabel("than zero after",button_40)
+            label_7.setFont(QFont("Times",12))
+            label_7.setStyleSheet("color: black ;"
+                                  "border: none;"
+                                  "background-color: none;");
+            label_7.setGeometry(4,42,100,26)
+
+            label_8 = QLabel("the decimal",button_40)
+            label_8.setFont(QFont("Times",12))
+            label_8.setStyleSheet("color: black ;"
+                                  "border: none;"
+                                  "background-color: none;");
+            label_8.setGeometry(10,56,100,26)
+
+            label_9 = QLabel("digit of the",button_40)
+            label_9.setFont(QFont("Times",12))
+            label_9.setStyleSheet("color: black ;"
+                                  "border: none;"
+                                  "background-color: none;");
+            label_9.setGeometry(16,70,100,26)
+
+            label_10 = QLabel("resistor value",button_40)
+            label_10.setFont(QFont("Times",12))
+            label_10.setStyleSheet("color: black ;"
+                                  "border: none;"
+                                  "background-color: none;");
+            label_10.setGeometry(8,83,100,26)
+
+            label_11 = QLabel("Please do not",button_41)
+            label_11.setFont(QFont("Times",12))
+            label_11.setStyleSheet("color: black ;"
+                                  "border: none;"
+                                  "background-color: none;");
+            label_11.setGeometry(8,0,100,26)
+
+            label_12 = QLabel("enter any",button_41)
+            label_12.setFont(QFont("Times",12))
+            label_12.setStyleSheet("color: black ;"
+                                  "border: none;"
+                                  "background-color: none;");
+            label_12.setGeometry(16,14,100,26)
+
+            label_13 = QLabel("letters in the",button_41)
+            label_13.setFont(QFont("Times",12))
+            label_13.setStyleSheet("color: black ;"
+                                  "border: none;"
+                                  "background-color: none;");
+            label_13.setGeometry(10,28,100,26)
+
+            label_14 = QLabel("   value bar. ",button_41)
+            label_14.setFont(QFont("Times",12))
+            label_14.setStyleSheet("color: black ;"
+                                  "border: none;"
+                                  "background-color: none;");
+            label_14.setGeometry(8,42,100,26)
+
+            label_15 = QLabel("Otherwise you",button_41)
+            label_15.setFont(QFont("Times",12))
+            label_15.setStyleSheet("color: black ;"
+                                  "border: none;"
+                                  "background-color: none;");
+            label_15.setGeometry(4,56,100,26)
+
+            label_16 = QLabel("      will not",button_41)
+            label_16.setFont(QFont("Times",12))
+            label_16.setStyleSheet("color: black ;"
+                                  "border: none;"
+                                  "background-color: none;");
+            label_16.setGeometry(4,70,100,26)
+
+            label_17 = QLabel("  get results",button_41)
+            label_17.setFont(QFont("Times",12))
+            label_17.setStyleSheet("color: black ;"
+                                  "border: none;"
+                                  "background-color: none;");
+            label_17.setGeometry(10,82,100,26)
+
+            label_18 = QLabel("  Value:",self)
+            label_18.setFont(QFont("Times",13))
+            label_18.setStyleSheet("color: #EFE4B0 ;"
+                                  "border: black;"
+                                  "background-color: none;");
+            label_18.setGeometry(50,292,55,16)
+
+            self.entry_1 = QLineEdit(self)
+            self.entry_1.setFont(QFont("Times",13))
+            self.entry_1.setStyleSheet("color: black ;"
+                                     "background-color: #EFE4B0;"
+                                     "border-style: outset;"
+                                     "border-width: 2px;"
+                                     "border-radius: 10px;"
+                                     "border-color: black;");
+            self.entry_1.setMaxLength(10)
+            self.entry_1.setValidator(QIntValidator())
+            self.entry_1.setAlignment(Qt.AlignCenter)
+            self.entry_1.editingFinished.connect(enterPress)
+            self.entry_1.setGeometry(100,292,100,20)
+
+            button_42 = QPushButton("",self)
+            pixmap_42 = QPixmap("Omega.png")
+            button_42.setIcon(QIcon(pixmap_42))
+            button_42.setIconSize(QSize(20,20))
+            button_42.setGeometry(205,292,20,20)
+            button_42.setStyleSheet("border: none;")
+
+            button_27 = QPushButton("Apply",self)
+            button_27.setFont(QFont("Times",12))
+            button_27.setStyleSheet("color: black ;"
+                                    "background-color: #CD853F;"
+                                     "border-style: outset;"
+                                     "border-width: 2px;"
+                                     "border-radius: 10px;"
+                                     "border-color: black;");
+            button_27.setGeometry(112,317,80,28)
+            button_27.clicked.connect(enterPress)
+
+        def enterPress():
+            value_1 = int(self.entry_1.text())
+            digit = 0
+            if value_1 > 0 :
+                #number of digits
+                value_1_1 = len(str(value_1))
+                #tens digit
+                value_1_2 = int(int(value_1) / (10 ** (value_1_1 - 1)))
+                #first two digits
+                value_1_3 = int(int(value_1) / (10 ** (value_1_1 - 2)))
+                #raunded value
+                value_1_4 = int(int(value_1_3) * (10 ** (value_1_1 - 2)))
+                #ones digits
+                value_1_5 = int(value_1_3 - (value_1_2 * 10))
+
+                self.label_1.setText(str(value_1_4))
+
+                self.entry_1.setText(str(value_1_4))
+
+                print(value_1_2)
+                if int(value_1_1) > 1:
+                    print(str(int(value_1_5)))
+
+                    if int(value_1_5) == 0:
+                        self.button_4.setStyleSheet("border-style: outset;"
+                                                    "border-width: 1px;"
+                                                    "background-color: black;"
+                                                    "border-color: black;");
+                    if int(value_1_5) == 1:
+                        self.button_4.setStyleSheet("border-style: outset;"
+                                                    "border-width: 1px;"
+                                                    "background-color: #964b00;"
+                                                    "border-color: black;");
+                    if int(value_1_5) == 2:
+                        self.button_4.setStyleSheet("border-style: outset;"
+                                                    "border-width: 1px;"
+                                                    "background-color: #ff2400;"
+                                                    "border-color: black;");
+                    if int(value_1_5) == 3:
+                        self.button_4.setStyleSheet("border-style: outset;"
+                                                    "border-width: 1px;"
+                                                    "background-color: #FF7F00;"
+                                                    "border-color: black;");
+                    if int(value_1_5) == 4:
+                        self.button_4.setStyleSheet("border-style: outset;"
+                                                    "border-width: 1px;"
+                                                    "background-color: #ffff00 ;"
+                                                    "border-color: black;");
+                    if int(value_1_5) == 5:
+                        self.button_4.setStyleSheet("border-style: outset;"
+                                                    "border-width: 1px;"
+                                                    "background-color: #03c03c;"
+                                                    "border-color: black;");
+                    if int(value_1_5) == 6:
+                        self.button_4.setStyleSheet("border-style: outset;"
+                                                    "border-width: 1px;"
+                                                    "background-color: #002fa7;"
+                                                    "border-color: black;");
+                    if int(value_1_5) == 7:
+                        self.button_4.setStyleSheet("border-style: outset;"
+                                                    "border-width: 1px;"
+                                                    "background-color: #660099;"
+                                                    "border-color: black;");
+                    if int(value_1_5) == 8:
+                        self.button_4.setStyleSheet("border-style: outset;"
+                                                    "border-width: 1px;"
+                                                    "background-color: #908f8f;"
+                                                    "border-color: black;");
+                    if int(value_1_5) == 9:
+                        self.button_4.setStyleSheet("border-style: outset;"
+                                                    "border-width: 1px;"
+                                                    "background-color: #ffffff;"
+                                                    "border-color: black;");
+
+                    if int(value_1_2) == 0:
+                        self.button_2.setStyleSheet("border-style: outset;"
+                                                    "border-width: 1px;"
+                                                    "background-color: black;"
+                                                    "border-color: black;");
+                    if int(value_1_2) == 1:
+                        self.button_2.setStyleSheet("border-style: outset;"
+                                                    "border-width: 1px;"
+                                                    "background-color: #964b00;"
+                                                    "border-color: black;");
+                    if int(value_1_2) == 2:
+                        self.button_2.setStyleSheet("border-style: outset;"
+                                                    "border-width: 1px;"
+                                                    "background-color: #ff2400;"
+                                                    "border-color: black;");
+                    if int(value_1_2) == 3:
+                        self.button_2.setStyleSheet("border-style: outset;"
+                                                    "border-width: 1px;"
+                                                    "background-color: #FF7F00;"
+                                                    "border-color: black;");
+                    if int(value_1_2) == 4:
+                        self.button_2.setStyleSheet("border-style: outset;"
+                                                    "border-width: 1px;"
+                                                    "background-color: #ffff00 ;"
+                                                    "border-color: black;");
+                    if int(value_1_2) == 5:
+                        self.button_2.setStyleSheet("border-style: outset;"
+                                                    "border-width: 1px;"
+                                                    "background-color: #03c03c;"
+                                                    "border-color: black;");
+                    if int(value_1_2) == 6:
+                        self.button_2.setStyleSheet("border-style: outset;"
+                                                    "border-width: 1px;"
+                                                    "background-color: #002fa7;"
+                                                    "border-color: black;");
+                    if int(value_1_2) == 7:
+                        self.button_2.setStyleSheet("border-style: outset;"
+                                                    "border-width: 1px;"
+                                                    "background-color: #660099;"
+                                                    "border-color: black;");
+                    if int(value_1_2) == 8:
+                        self.button_2.setStyleSheet("border-style: outset;"
+                                                    "border-width: 1px;"
+                                                    "background-color: #908f8f;"
+                                                    "border-color: black;");
+                    if int(value_1_2) == 9:
+                        self.button_2.setStyleSheet("border-style: outset;"
+                                                    "border-width: 1px;"
+                                                    "background-color: #ffffff;"
+                                                    "border-color: black;");
+
+                    if int(value_1_1) == 0:
+                        self.button_6.setStyleSheet("border-style: outset;"
+                                                    "border-width: 1px;"
+                                                    "background-color: black;"
+                                                    "border-color: black;");
+                    if int(value_1_1) == 1:
+                        self.button_6.setStyleSheet("border-style: outset;"
+                                                    "border-width: 1px;"
+                                                    "background-color: black;"
+                                                    "border-color: black;");
+                    if int(value_1_1) == 2:
+                        self.button_6.setStyleSheet("border-style: outset;"
+                                                    "border-width: 1px;"
+                                                    "background-color: black;"
+                                                    "border-color: black;");
+                    if int(value_1_1) == 3:
+                        self.button_6.setStyleSheet("border-style: outset;"
+                                                    "border-width: 1px;"
+                                                    "background-color: #964b00;"
+                                                    "border-color: black;");
+                    if int(value_1_1) == 4:
+                        self.button_6.setStyleSheet("border-style: outset;"
+                                                    "border-width: 1px;"
+                                                    "background-color: #ff2400;"
+                                                    "border-color: black;");
+                    if int(value_1_1) == 5:
+                        self.button_6.setStyleSheet("border-style: outset;"
+                                                    "border-width: 1px;"
+                                                    "background-color: #FF7F00;"
+                                                    "border-color: black;");
+                    if int(value_1_1) == 6:
+                        self.button_6.setStyleSheet("border-style: outset;"
+                                                    "border-width: 1px;"
+                                                    "background-color: #ffff00 ;"
+                                                    "border-color: black;");
+                    if int(value_1_1) == 7:
+                        self.button_6.setStyleSheet("border-style: outset;"
+                                                    "border-width: 1px;"
+                                                    "background-color: #03c03c;"
+                                                    "border-color: black;");
+                    if int(value_1_1) == 8:
+                        self.button_6.setStyleSheet("border-style: outset;"
+                                                    "border-width: 1px;"
+                                                    "background-color: #002fa7;"
+                                                    "border-color: black;");
+                    if int(value_1_1) == 9:
+                        self.button_6.setStyleSheet("border-style: outset;"
+                                                    "border-width: 1px;"
+                                                    "background-color: #660099;"
+                                                    "border-color: black;");
+                    if int(value_1_1) == 10:
+                        self.button_6.setStyleSheet("border-style: outset;"
+                                                    "border-width: 1px;"
+                                                    "background-color: #908f8f;"
+                                                    "border-color: black;");
+
+                if value_1_1 == 1:
+                    self.button_2.setStyleSheet("border-style: outset;"
+                                                "border-width: 1px;"
+                                                "background-color: black;"
+                                                "border-color: black;");
+
+                    self.button_6.setStyleSheet("border-style: outset;"
+                                                "border-width: 1px;"
+                                                "background-color: #cfb53b;"
+                                                "border-color: black;");
+
+                    if int(value_1_2) == 0:
+                        self.button_4.setStyleSheet("border-style: outset;"
+                                                    "border-width: 1px;"
+                                                    "background-color: black;"
+                                                    "border-color: black;");
+                    if int(value_1_2) == 1:
+                        self.button_4.setStyleSheet("border-style: outset;"
+                                                    "border-width: 1px;"
+                                                    "background-color: #964b00;"
+                                                    "border-color: black;");
+                    if int(value_1_2) == 2:
+                        self.button_4.setStyleSheet("border-style: outset;"
+                                                    "border-width: 1px;"
+                                                    "background-color: #ff2400;"
+                                                    "border-color: black;");
+                    if int(value_1_2) == 3:
+                        self.button_4.setStyleSheet("border-style: outset;"
+                                                    "border-width: 1px;"
+                                                    "background-color: #FF7F00;"
+                                                    "border-color: black;");
+                    if int(value_1_2) == 4:
+                        self.button_4.setStyleSheet("border-style: outset;"
+                                                    "border-width: 1px;"
+                                                    "background-color: #ffff00 ;"
+                                                    "border-color: black;");
+                    if int(value_1_2) == 5:
+                        self.button_4.setStyleSheet("border-style: outset;"
+                                                    "border-width: 1px;"
+                                                    "background-color: #03c03c;"
+                                                    "border-color: black;");
+                    if int(value_1_2) == 6:
+                        self.button_4.setStyleSheet("border-style: outset;"
+                                                    "border-width: 1px;"
+                                                    "background-color: #002fa7;"
+                                                    "border-color: black;");
+                    if int(value_1_2) == 7:
+                        self.button_4.setStyleSheet("border-style: outset;"
+                                                    "border-width: 1px;"
+                                                    "background-color: #660099;"
+                                                    "border-color: black;");
+                    if int(value_1_2) == 8:
+                        self.button_4.setStyleSheet("border-style: outset;"
+                                                    "border-width: 1px;"
+                                                    "background-color: #908f8f;"
+                                                    "border-color: black;");
+                    if int(value_1_2) == 9:
+                        self.button_4.setStyleSheet("border-style: outset;"
+                                                    "border-width: 1px;"
+                                                    "background-color: #ffffff;"
+                                                    "border-color: black;");
+
+            else:
+                msg = QMessageBox()
+                msg.setIcon(QMessageBox.Critical)
+                msg.setText("Error")
+                msg.setInformativeText('Please enter positive value')
+                msg.setWindowTitle("Error")
+                msg.exec_()
+
+
+        part_2_1()
+        # About second big button
+
+        def part_2_2():
+
+            button_26 = QPushButton("",self)
+            button_26.setFont(QFont("Times",12))
+            button_26.setStyleSheet("color: black ;"
+                                    "border:none;"
+                                    "background-color: #EFE4B0;"
+                                    "border-style: outset;"
+                                    "border-width: 2px;"
+                                    "border-radius: 30px;"
+                                    "border-color: black;"
+                                    "min-width: 10em;"
+                                    "padding: 6px;");
+            button_26.setGeometry(30,360,240,190)
+
+            button_28 = QPushButton("First color:",self)
+            button_28.setFont(QFont("Times",12))
+            button_28.setStyleSheet("color: black ;"
+                                    "border:none;"
+                                    "background-color: #CD853F;"
+                                    "border-style: outset;"
+                                    "border-width: 2px;"
+                                    "border-radius: 10px;"
+                                    "border-color: black;");
+            button_28.setGeometry(35,390,90,30)
+
+            button_29 = QPushButton("Second color:",self)
+            button_29.setFont(QFont("Times",12))
+            button_29.setStyleSheet("color: black ;"
+                                    "border:none;"
+                                    "background-color: #CD853F;"
+                                    "border-style: outset;"
+                                    "border-width: 2px;"
+                                    "border-radius: 10px;"
+                                    "border-color: black;");
+            button_29.setGeometry(35,440,90,30)
+
+            button_30 = QPushButton("Third color:",self)
+            button_30.setFont(QFont("Times",12))
+            button_30.setStyleSheet("color: black ;"
+                                    "border:none;"
+                                    "background-color: #CD853F;"
+                                    "border-style: outset;"
+                                    "border-width: 2px;"
+                                    "border-radius: 10px;"
+                                    "border-color: black;");
+            button_30.setGeometry(35,490,90,30)
+
+            button_31 = QPushButton("",self)
+            button_31.setFont(QFont("Times",12))
+            pixmap_14 = QPixmap("All_Colors_2_For_Slider.png")
+            button_31.setIcon(QIcon(pixmap_14))
+            button_31.setIconSize(QSize(132,25))
+            button_31.setStyleSheet("color: black ;"
+                                    "border: none"
+                                    "background-color: #CD853F;"
+                                    "border-style: outset;"
+                                    "border-width: 2px;"
+                                    "border-radius: 10px;"
+                                    "border-color: black;");
+            button_31.setGeometry(128,400,132,20)
+
+            button_32 = QPushButton("",self)
+            button_32.setFont(QFont("Times",12))
+            button_32.setIconSize(QSize(130,20))
+            button_32.setStyleSheet("color: black ;"
+                                    "border-style: outset;"
+                                    "border-width: 2px;"
+                                    "border-radius: 5px;"
+                                    "border-color: black;");
+            button_32.setGeometry(128,402,132,16)
+
+            button_33 = QPushButton("",self)
+            button_33.setFont(QFont("Times",12))
+            pixmap_15 = QPixmap("All_Colors_For_Slider.png")
+            button_33.setIcon(QIcon(pixmap_15))
+            button_33.setIconSize(QSize(132,25))
+            button_33.setStyleSheet("color: black ;"
+                                    "border: none"
+                                    "background-color: #CD853F;"
+                                    "border-style: outset;"
+                                    "border-width: 2px;"
+                                    "border-radius: 10px;"
+                                    "border-color: black;");
+            button_33.setGeometry(128,450,132,20)
+
+            button_34 = QPushButton("",self)
+            button_34.setFont(QFont("Times",12))
+            button_34.setIconSize(QSize(130,20))
+            button_34.setStyleSheet("color: black ;"
+                                    "border-style: outset;"
+                                    "border-width: 2px;"
+                                    "border-radius: 5px;"
+                                    "border-color: black;");
+            button_34.setGeometry(128,452,132,16)
+
+            button_35= QPushButton("",self)
+            button_35.setFont(QFont("Times",12))
+            pixmap_16 = QPixmap("All_Colors_3_For_Slider.png")
+            button_35.setIcon(QIcon(pixmap_16))
+            button_35.setIconSize(QSize(132,25))
+            button_35.setStyleSheet("color: black ;"
+                                    "border: none"
+                                    "background-color: #CD853F;"
+                                    "border-style: outset;"
+                                    "border-width: 2px;"
+                                    "border-radius: 10px;"
+                                    "border-color: black;");
+            button_35.setGeometry(128,500,132,20)
+
+            button_36 = QPushButton("",self)
+            button_36.setFont(QFont("Times",12))
+            button_36.setIconSize(QSize(130,20))
+            button_36.setStyleSheet("color: black ;"
+                                    "border-style: outset;"
+                                    "border-width: 2px;"
+                                    "border-radius: 5px;"
+                                    "border-color: black;");
+            button_36.setGeometry(128,502,132,16)
+
+            button_38 = QPushButton("Enter Resistor Colors",button_26)
+            button_38.setFont(QFont("Times",12))
+            button_38.setStyleSheet("color: black ;"
+                                     "background-color: #CD853F;"
+                                     "border-style: outset;"
+                                     "border-width: 2px;"
+                                     "border-radius: 10px;"
+                                     "border-color: black;"
+                                     "min-width: 10em;"
+                                     "padding: 6px;");
+            button_38.setGeometry(45,0,50,28)
+
+            self.slider_1 = QSlider(self)
+            self.slider_1.setStyleSheet("border:none ;");
+            self.slider_1.setGeometry(132,488,125,30)
+            self.slider_1.setOrientation(Qt.Horizontal)
+            self.slider_1.setTickPosition(QSlider.TicksBelow)
+            self.slider_1.setTickInterval(1)
+            self.slider_1.setMinimum(0)
+            self.slider_1.setMaximum(9)
+            self.slider_1.valueChanged[int].connect(sliderValue)
+
+
+
+            self.slider_2 = QSlider(self)
+            self.slider_2.setStyleSheet("border:none ;");
+            self.slider_2.setGeometry(132,438,125,30)
+            self.slider_2.setOrientation(Qt.Horizontal)
+            self.slider_2.setTickPosition(QSlider.TicksBelow)
+            self.slider_2.setTickInterval(1)
+            self.slider_2.setMinimum(0)
+            self.slider_2.setMaximum(9)
+            self.slider_2.valueChanged.connect(sliderValue)
+
+            self.slider_3 = QSlider(self)
+            self.slider_3.setStyleSheet("border:none ;");
+            self.slider_3.setGeometry(132,388,125,30)
+            self.slider_3.setOrientation(Qt.Horizontal)
+            self.slider_3.setTickPosition(QSlider.TicksBelow)
+            self.slider_3.setTickInterval(1)
+            self.slider_3.setMinimum(0)
+            self.slider_3.setMaximum(8)
+            self.slider_3.valueChanged.connect(sliderValue)
+
+        def sliderValue():
+            c3_1 =int(self.slider_1.value())
+            c2_1 =int(self.slider_2.value())
+            c1_1 =int(self.slider_3.value())
+
+            if c3_1 < 9:
+                value_2 = int(((c1_1 + 1)*10 + c2_1) * (10 ** c3_1))
+            else:
+                value_2 = int(((c1_1 + 1)*10 + c2_1) * 0.1)
+
+            self.label_1.setText(str(value_2))
+
+            self.entry_1.setText(str(value_2))
+
+            enterPress()
+
+        part_2_2()
+
+        self.show()
+
+
+if __name__ == "__main__":
+    App = QApplication(sys.argv)
+    window = Window()
+    sys.exit(App.exec())
